@@ -2,12 +2,9 @@ package com.example.kringle.mvpsample2;
 
 import android.util.Log;
 
-import com.example.kringle.mvpsample2.model.Notice;
 import com.example.kringle.mvpsample2.model.NoticeList;
 import com.example.kringle.mvpsample2.network.ApiClient;
 import com.example.kringle.mvpsample2.network.ApiInterface;
-
-import java.util.List;
 
 import retrofit2.Call;
 import retrofit2.Callback;

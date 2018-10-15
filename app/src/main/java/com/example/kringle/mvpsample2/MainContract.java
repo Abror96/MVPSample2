@@ -1,5 +1,7 @@
 package com.example.kringle.mvpsample2;
 
+import android.support.v4.widget.SwipeRefreshLayout;
+
 import com.example.kringle.mvpsample2.model.Notice;
 
 import java.util.ArrayList;
@@ -22,6 +24,8 @@ public interface MainContract {
 
         void onResponseFailure(Throwable throwable);
 
+        void setSwipeRefreshLayout();
+
     }
 
     interface Presenter {
@@ -29,6 +33,8 @@ public interface MainContract {
         void onDestroy();
 
         void requestDataFromServer();
+
+        void pullToRefresh();
 
     }
 
