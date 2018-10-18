@@ -1,7 +1,5 @@
 package com.example.kringle.mvpsample2;
 
-import android.widget.Toast;
-
 import com.example.kringle.mvpsample2.model.Notice;
 
 import java.util.ArrayList;
@@ -28,19 +26,27 @@ public class MainPresenterImpl implements MainContract.Presenter, MainContract.M
 
     @Override
     public void pullToRefresh() {
+        if (view != null) {
+            view.showProgress();
+        }
         model.getNoticeArrayList(this);
     }
 
     @Override
     public void onFinished(ArrayList<Notice> noticeList) {
         if (view != null) {
-            view.setSwipeRefreshLayout();
+            view.setSwipeRefreshLayout(false);
             view.setDataToRecyclerView(noticeList);
+            view.hideProgress();
         }
     }
 
     @Override
     public void onFailure(Throwable throwable) {
+        if (view != null) {
+            view.setSwipeRefreshLayout(false);
+            view.hideProgress();
+        }
         view.onResponseFailure(throwable);
     }
 }

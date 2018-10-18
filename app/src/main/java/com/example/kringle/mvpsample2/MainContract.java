@@ -20,11 +20,15 @@ public interface MainContract {
 
     interface View {
 
+        void showProgress();
+
+        void hideProgress();
+
         void setDataToRecyclerView(ArrayList<Notice> noticeArrayList);
 
         void onResponseFailure(Throwable throwable);
 
-        void setSwipeRefreshLayout();
+        void setSwipeRefreshLayout(boolean isRefreshing);
 
     }
 
